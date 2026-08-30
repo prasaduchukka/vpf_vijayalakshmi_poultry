@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suppliers \u2013 Vijayalakshmi Poultry Farm</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="suppliers" data-title="Suppliers">
+  <div id="page-content">
+    <div class="toolbar">
+      <div class="filters">
+        <input type="text" id="search-box" placeholder="Search supplier...">
+      </div>
+      <button class="btn-primary" id="add-supplier-btn">+ Add Supplier</button>
+    </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>Supplier Name</th><th>Contact</th><th>Phone</th><th class="text-right">Opening Payable</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="suppliers-body"><tr><td colspan="6" class="table-empty">Loading...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="supplier-modal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="supplier-modal-title">Add Supplier</h2>
+        <button class="modal-close" data-close-modal="supplier-modal">&times;</button>
+      </div>
+      <div id="supplier-form-error"></div>
+      <form id="supplier-form">
+        <input type="hidden" id="s-id">
+        <div class="field">
+          <label>Supplier Name *</label>
+          <input type="text" id="s-name" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Contact Person</label>
+            <input type="text" id="s-contact">
+          </div>
+          <div class="field">
+            <label>Phone Number</label>
+            <input type="text" id="s-phone">
+          </div>
+        </div>
+        <div class="field">
+          <label>Address</label>
+          <textarea id="s-address" rows="2"></textarea>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Opening Payable Balance (\u20b9)</label>
+            <input type="number" step="0.01" min="0" id="s-opening-balance" value="0">
+            <div class="hint" id="s-opening-balance-hint">Only used when creating a new supplier.</div>
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select id="s-status">
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Notes</label>
+          <textarea id="s-notes" rows="2"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-outline" data-close-modal="supplier-modal">Cancel</button>
+          <button type="submit" class="btn-primary" id="supplier-save-btn">Save Supplier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/format.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="../js/icons.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/suppliers.js"></script>
+</body>
+</html>
